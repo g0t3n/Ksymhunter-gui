@@ -1,4 +1,10 @@
 
+# 用到的 vmlinux 文件
+ * redhat 系列
+   * ftp://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/os/x86_64/Debuginfo/
+ * ubuntu 系列
+   * http://ddebs.ubuntu.com/pool/main/l/linux/
+
 # 性能测试
  * ab -n 10000 -c 25 http://localhost:8888/
 
