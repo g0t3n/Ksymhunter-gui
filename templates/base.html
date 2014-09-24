@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% end %}</title>
+    {% include "easyui.html" %}
+    <link href="../static/prism.css" rel="stylesheet" />
+  </head>
+  <body>
+    <script src="../static/prism.js"></script>
+    {% block body %}
+    {% end %}
+  </body>
+  <footer>
+    <div class="container" style="center">
+      <p class="text-center">a <a href="http://localhost:8888/" target="_blank">G0t3n</a>'s project.</p>
+    </div>
+  </footer>
+
+</html>

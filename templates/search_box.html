@@ -1,0 +1,51 @@
+<script type='text/javascript' language='JavaScript'>
+  function DoSearch(value){
+    var onSelectKver = $('#lefttree').tree('getSelected');
+    if (!onSelectKver){
+      alert("select a kernel/vmlinux before search Ksymbol");
+      return;
+    }
+    var KversionPath = GetLeftTreeKversionPath();
+    var post_data = 'onSelectKverion=' + KversionPath + '&Ksym=' + value;
+    <!-- alert("debug: KversionPath is " + KversionPath); -->
+      $.ajax({
+        type : 'POST',
+        url : '/search/',
+        data : post_data,
+        success : function(data){
+          $("#SearchResult").html('<pre><code class="language-css">' + data + '</code></pre>');
+        },
+        error : function(){
+          alert("ajax error function");
+        }
+      });
+  }
+</script>
+
+<div class="easyui-tabs" style="width:100%;height:700px">
+  <div id="BasicInfoTable" title="Basic Infomation" style="padding:10px">
+    <h2>vmlinux infomation.</h2>
+    <ul>
+      <li>ELF infomation here</li>
+    </ul>
+  </div>
+  <div title="Ksymhunter" style="padding:10px">
+    <input class="easyui-searchbox" data-options="prompt:'Searching Kernel Symbol ',searcher:DoSearch" style="width:300px" />
+    <div id="SearchResult" data-options="region:'center'" style="100%">
+<!--       <pre> -->
+      <!-- <code class="language-css">p { color: red } -->
+      <!-- </code> -->
+      <!-- </pre> -->
+    </div>
+  </div>
+<!-- <div title="DisKfunction" style="padding:10px"> -->
+  <!-- <input class="easyui-searchbox" data-options="prompt:'disassemble a kernel function',searcher:DoSearch" style="width:300px"></input> -->
+  <!-- <div id="SearchResult" data-options="region:'center'" style="100%">  -->
+    <!-- <pre><code class="language-css">p { color: red }</code></pre> -->
+  <!-- </div> -->
+
+
+<div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+  leave it free
+</div>
+</div>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+{% extends "base.html" %}
+{% block title %}  {{ title }}  {% end %}
+
+
+{% block body %}
+<div class="easyui-layout" style="width:100%;height:700px;">
+  <div data-options="region:'west',split:true", title:"Os Version" style="width:20%">
+    {% include "left_tree.html" %}
+  </div>
+  <div data-options="region:'center'">
+    {% include "search_box.html" %}
+  </div>
+</div>
+
+
+{% end %}

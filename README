@@ -1,0 +1,18 @@
+
+# 性能测试
+ * ab -n 10000 -c 25 http://localhost:8888/
+
+# virtualenv
+ * pip install virtualenv
+ * virtualenv demo-it
+ * source demo-it/activate
+
+# 用到的第三方库
+## elf 解析器总结
+ * pyelf - 没用到外部依赖 以及用到的数据都是自定义的 缺点只支持 x86 不支持 x64
+ * python-elf - 没去研究啊
+ * pyelftools - 自依赖 支持 x86/x64 的 littel endian    that's it!!!!
+
+## 反编译器
+ * pymsasid - A pure python disassembling library
+ *

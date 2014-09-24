@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- ajax for dir list -->
+<script type="text/javascript">
+  function GetLeftTreeKversionPath(){
+    var onSelectKver = $('#lefttree').tree('getSelected');
+    var KversionPath = "/" + onSelectKver.text;
+    for (var i=0;; i++){
+      onSelectKver = $('#lefttree').tree('getParent', onSelectKver.target);
+      if (!onSelectKver){
+        break;
+      }
+      KversionPath = "/" + onSelectKver.text + KversionPath;
+    }
+    return KversionPath;
+ }
+</script>
+<script type="text/javascript">
+  $(function () {
+    var onSelectKver = "";
+    $('#lefttree').tree({
+      animate: true,
+      checkbox: false,
+      url: '/listdir/',
+      onClick: function (node) {
+        onSelectKver = GetLeftTreeKversionPath();
+        post_data = "onSelectKverion=" + onSelectKver;
+        $.ajax({
+          type : 'POST',
+          url : '/getBasicInfo/',
+          data : post_data,
+          success : function(data){
+            $("#BasicInfoTable").html('<pre><code class="language-css">' + data + '</code></pre>');
+          },
+          error : function(){
+            alert("ajax error function");
+          }
+        });
+
+      }
+    })
+  });
+</script>
+
+<!-- <div style="padding:2px 0;"> -->
+  <!-- <h2> Index Of *</h2> -->
+  <!-- </div> -->
+<!-- <div style="margin:10px 0;"></div> -->
+<!-- <div style="padding:5px 0;"></div> -->
+
+<!-- <div class="easyui-panel" style="padding:5px;width=100%;height=700px"> -->
+<div class="easyui-panel" style="padding:5px;width:100%;height:700px">
+  <ul id='lefttree' class="easyui-tree" style="width:100%"></ul>
+</div>
+
