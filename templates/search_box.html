@@ -7,13 +7,14 @@
     }
     var KversionPath = GetLeftTreeKversionPath();
     var post_data = 'onSelectKverion=' + KversionPath + '&Ksym=' + value;
+    post_data = post_data + "&QuickLookup=" + $('#QuickLookup').combobox('getData');
     <!-- alert("debug: KversionPath is " + KversionPath); -->
       $.ajax({
         type : 'POST',
         url : '/search/',
         data : post_data,
         success : function(data){
-          $("#SearchResult").html('<pre><code class="language-css">' + data + '</code></pre>');
+          $("#SearchResult").html('<pre class="line-numbers language-css" data-src="plugins/line-numbers/prism-line-numbers.css"><code class="language-css">' + data + '</code></pre>');
         },
         error : function(){
           alert("ajax error function");
@@ -30,6 +31,10 @@
     </ul>
   </div>
   <div title="Ksymhunter" style="padding:10px">
+<select id="QuickLookup" class="easyui-combobox" name="dept" style="width:200px;">
+    <option value="True">quick search</option>
+    <option value="False">deep search</option>
+</select>
     <input class="easyui-searchbox" data-options="prompt:'Searching Kernel Symbol ',searcher:DoSearch" style="width:300px" />
     <div id="SearchResult" data-options="region:'center'" style="100%">
 <!--       <pre> -->

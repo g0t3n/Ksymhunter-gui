@@ -7,17 +7,14 @@ from os.path import isdir,isfile
 import sys
 from struct import unpack_from
 
-def assert_elf_file(data):
-    try:
-        magic = unpack_from('>4s', data)[0]
-    except:
-        raise Exception," assert_elf_file: unpack_from error"
+def assert_elf_file(fd):
+    magic = fd.read(4)
     return magic == '\x7fELF'
 
-def assert_vmlinux_file(fname):
+def assert_vmlinux_file(fd):
     # file is too hard to code in here...
-    assert_elf_file(fname)
-    return True
+    return assert_elf_file(fd)
+
 
 def getVmlinuxJson(image_path):
     # directory like this: Ksymhunter/centos/5/vmlinux1
@@ -50,7 +47,9 @@ def getVmlinuxJson(image_path):
             vmlinux_files = []
             for f in range(len(tmp_vmlinux_files)):
                 if isfile(pathjoin(rel_dir, tmp_vmlinux_files[f])):
-                    vmlinux_files.append(tmp_vmlinux_files[f])
+                    fd = open(pathjoin(rel_dir, tmp_vmlinux_files[f]))
+                    if assert_vmlinux_file(fd):
+                        vmlinux_files.append(tmp_vmlinux_files[f])
             vmlinux_json[dis][release_item] = vmlinux_files
     return vmlinux_json
 

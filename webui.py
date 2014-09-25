@@ -35,7 +35,6 @@ def getNodeDic(text, attributes=[]):
 def getTreeJson():
     treeJson = []
     for distribution in vmlinux_file_json.keys():
-        # treeJson.append(getNodeDic(distribution))
         NodeDisDic = getNodeDic(distribution)
         for release_code in vmlinux_file_json[distribution].keys():
             NodeRelDic = getNodeDic(release_code)
@@ -62,7 +61,7 @@ class SearchSymbolHandler(tornado.web.RequestHandler):
         uri = self.request.body
         vmlinux_dir = self.get_argument("onSelectKverion", None)
         ksymbol = self.get_argument("Ksym", None)
-        quick_lookup = self.get_argument("QuickLookup", False)
+        quick_lookup = self.get_argument("QuickLookup", True)
 
         if not vmlinux_dir or not ksymbol:
             self.write("{'error': 'please supply vmlinux_dir&ksymbol'")

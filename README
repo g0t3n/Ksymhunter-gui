@@ -1,11 +1,22 @@
 
-# 用到的 vmlinux 文件
- * redhat 系列
-   * ftp://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/os/x86_64/Debuginfo/
- * ubuntu 系列
-   * http://ddebs.ubuntu.com/pool/main/l/linux/
+WHY THIS
+ * 这个小玩意仅是为了 Ksymhunter 跨发行版简单 web 可视化查询
+ * 仅仅是为了学习下 web 编程 ;-)
+ # 用到的 vmlinux 文件
+  * redhat 系列
+    * ftp://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/os/x86_64/Debuginfo/
+  * ubuntu 系列
+    * http://ddebs.ubuntu.com/pool/main/l/linux/
 
-# 性能测试
+TODO:
+ Fixme
+   0 : searchbox 处应该加入 ajax 等待服务端返回动画         [TODO]
+   1 : LeftTree 中 div 布局需要调试 内 div 会出现下拉       [TODO]
+   2 : Ksymhunter 
+ Feature
+   0 : 加入针对内核函数反编译器                             [TODO]
+
+ # 性能测试
  * ab -n 10000 -c 25 http://localhost:8888/
 
 # virtualenv
@@ -13,12 +24,23 @@
  * virtualenv demo-it
  * source demo-it/activate
 
-# 用到的第三方库
+考虑用到的第三方库
 ## elf 解析器总结
  * pyelf - 没用到外部依赖 以及用到的数据都是自定义的 缺点只支持 x86 不支持 x64
  * python-elf - 没去研究啊
- * pyelftools - 自依赖 支持 x86/x64 的 littel endian    that's it!!!!
+ * pyelftools - 自依赖 支持 x86/x64 的 littel endian    that's what i use !!!!
 
 ## 反编译器
- * pymsasid - A pure python disassembling library
- *
+ * pymsasid - A pure python disassembling library 2012-10-31到现在还没有更新 
+   * 很多 open issues 还没有解决
+ * diStorm disassembler library
+ * BeaEnginePython
+ * PyDasm
+ * Libdisassemble
+ * pwntools - disasm 函数居然是通过 odjdump 我醉了
+ * libdasm - pure c disasm implement 2010 年
+   * 同样有些小 issue@2014 仍未解决
+
+Ref:
+[1] https://code.google.com/p/pymsasid/issues/detail?id=16
+

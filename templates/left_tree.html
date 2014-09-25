@@ -29,7 +29,7 @@
           url : '/getBasicInfo/',
           data : post_data,
           success : function(data){
-            $("#BasicInfoTable").html('<pre><code class="language-css">' + data + '</code></pre>');
+            $("#BasicInfoTable").html('<pre class="line-numbers language-css" data-src="plugins/line-numbers/prism-line-numbers.css"><code class="language-css">' + data + '</code></pre>');
           },
           error : function(){
             alert("ajax error function");
