@@ -56,7 +56,7 @@ INSTALL
 
 Contribute
 ====
- 感谢淘神教我写 ajax 以及各种有意思的前端技巧
+ 感谢涛神教我写 ajax 以及各种有意思的前端技巧
 
 Reference
 ====
