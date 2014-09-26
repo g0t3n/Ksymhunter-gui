@@ -7,7 +7,15 @@
     }
     var KversionPath = GetLeftTreeKversionPath();
     var post_data = 'onSelectKverion=' + KversionPath + '&Ksym=' + value;
-    post_data = post_data + "&QuickLookup=" + $('#QuickLookup').combobox('getData');
+    var isQuickLookup = $('#QuickLookup').combobox('getValue');
+    if (isQuickLookup == "True"){
+      isQuickLookup = ""
+    }
+    else{
+      isQuickLookup = "&QuickLookup=" + isQuickLookup;
+    }
+
+    post_data = post_data + isQuickLookup;
     <!-- alert("debug: KversionPath is " + KversionPath); -->
       $.ajax({
         type : 'POST',

@@ -57,7 +57,7 @@ class SearchSymbolHandler(tornado.web.RequestHandler):
     def get(self):
         self.write(" *] [* Not Support for GET Request ")
     def post(self):
-        #特别要注意，因为是响应的ajax的请求，返回数据类型需指定为json
+        # 特别要注意，因为是响应的ajax的请求，返回数据类型需指定为json
         uri = self.request.body
         vmlinux_dir = self.get_argument("onSelectKverion", None)
         ksymbol = self.get_argument("Ksym", None)
@@ -81,7 +81,8 @@ class SearchSymbolHandler(tornado.web.RequestHandler):
             fd = open(vmlinux_dir)
         except:
             self.write("SearchSymbolHandler::can't open vmlinux,check vmlinux_abs_dir")
-        if quick_lookup:
+
+        if quick_lookup is True:
             result = do_quick_lookupsymbol(ksymbol, fd)
         else:
             result = do_deep_lookupsymbol(ksymbol, fd)
