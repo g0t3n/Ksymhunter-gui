@@ -20,12 +20,12 @@ WHY THIS
 TODO
 ====
  Fixme
-   0 : searchbox 处应该加入 ajax 等待服务端返回动画         [TODO]
-   1 : LeftTree 中 div 布局需要调试 内 div 会出现下拉       [TODO]
+   * : searchbox 处应该加入 ajax 等待服务端返回动画         [TODO]
+   * : LeftTree 中 div 布局需要调试 内 div 会出现下拉       [TODO]
 
  Feature
-   0 : 加入针对内核函数反编译器                             [TODO]
-   1 : 搜索框的 deepsearch 和 quicklookup 优化              [Done]
+   * : 加入针对内核函数反编译器                             [TODO]
+   * : 搜索框的 deepsearch 和 quicklookup 优化              [DONE]
 
 INSTALL
 ====
