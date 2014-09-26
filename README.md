@@ -12,9 +12,9 @@ WHY THIS
    i.e. ubuntu/10.04/vmlinux-2.6.32-42
  * [PS2] 注意修改 webui.py 中的 vmlinux 绝对路径哦
 
-![debug demo](./test/getbasicinfo.PNG)
-![debug demo](./test/quicklookup.PNG)
-![debug demo](./test/deepsearch.PNG)
+![debug demo](./pics/getbasicinfo.PNG)
+![debug demo](./pics/quicklookup.PNG)
+![debug demo](./pics/deepsearch.PNG)
 
 
 TODO
