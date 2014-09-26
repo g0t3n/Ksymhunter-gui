@@ -1,5 +1,6 @@
 
 WHY THIS
+====
  * 这个小玩意仅是为了 Ksymhunter 跨发行版简单 web 可视化查询
  * 仅仅是为了学习下 web 编程 ;-)
  # 用到的 vmlinux 文件
@@ -7,24 +8,33 @@ WHY THIS
     * ftp://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/os/x86_64/Debuginfo/
   * ubuntu 系列
     * http://ddebs.ubuntu.com/pool/main/l/linux/
+ * [PS1] 请自行下载 kernel-debuginfo 包并解压 需要解压并放置目录为 distribution/release_version/vmlinux_file
+   i.e. ubuntu/10.04/vmlinux-2.6.32-42
+ * [PS2] 注意修改 webui.py 中的 vmlinux 绝对路径哦
 
-TODO:
+![debug demo](./test/getbasicinfo.PNG)
+![debug demo](./test/quicklookup.PNG)
+![debug demo](./test/deepsearch.PNG)
+
+
+TODO
+====
  Fixme
    0 : searchbox 处应该加入 ajax 等待服务端返回动画         [TODO]
    1 : LeftTree 中 div 布局需要调试 内 div 会出现下拉       [TODO]
-   2 : Ksymhunter 
+
  Feature
    0 : 加入针对内核函数反编译器                             [TODO]
+   1 : 搜索框的 deepsearch 和 quicklookup 优化              [Done]
 
- # 性能测试
- * ab -n 10000 -c 25 http://localhost:8888/
+INSTALL
+====
+ * pip install -r requirement
+ * python webui.py
 
-# virtualenv
- * pip install virtualenv
- * virtualenv demo-it
- * source demo-it/activate
 
 考虑用到的第三方库
+====
 ## elf 解析器总结
  * pyelf - 没用到外部依赖 以及用到的数据都是自定义的 缺点只支持 x86 不支持 x64
  * python-elf - 没去研究啊
@@ -32,7 +42,7 @@ TODO:
 
 ## 反编译器
  * pymsasid - A pure python disassembling library 2012-10-31到现在还没有更新 
-   * 很多 open issues 还没有解决
+   * 很多 open issues 还没有解决 [1]
  * diStorm disassembler library
  * BeaEnginePython
  * PyDasm
@@ -41,6 +51,6 @@ TODO:
  * libdasm - pure c disasm implement 2010 年
    * 同样有些小 issue@2014 仍未解决
 
-Ref:
+Reference
+====
 [1] https://code.google.com/p/pymsasid/issues/detail?id=16
-
