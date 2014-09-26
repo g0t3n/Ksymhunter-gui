@@ -8,7 +8,8 @@ WHY THIS
     * ftp://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/os/x86_64/Debuginfo/
   * ubuntu 系列
     * http://ddebs.ubuntu.com/pool/main/l/linux/
- * [PS1] 请自行下载 kernel-debuginfo 包并解压 需要解压并放置目录为 distribution/release_version/vmlinux_file
+ * [PS1] 请自行下载 kernel-debuginfo 包并解压,需要解压并放置目录为distribution/release_version/vmlinux_file  
+
    i.e. ubuntu/10.04/vmlinux-2.6.32-42
  * [PS2] 注意修改 webui.py 中的 vmlinux 绝对路径哦
 
@@ -20,12 +21,12 @@ WHY THIS
 TODO
 ====
  Fixme
-   * : searchbox 处应该加入 ajax 等待服务端返回动画         [TODO]
-   * : LeftTree 中 div 布局需要调试 内 div 会出现下拉       [TODO]
+   * searchbox 处应该加入 ajax 等待服务端返回动画         [TODO]
+   * LeftTree 中 div 布局需要调试 内 div 会出现下拉       [TODO]
 
  Feature
-   * : 加入针对内核函数反编译器                             [TODO]
-   * : 搜索框的 deepsearch 和 quicklookup 优化              [DONE]
+   * 加入针对内核函数反编译器                             [TODO]
+   * 搜索框的 deepsearch 和 quicklookup 优化              [DONE]
 
 INSTALL
 ====
