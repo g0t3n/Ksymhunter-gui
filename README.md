@@ -51,6 +51,10 @@ INSTALL
  * libdasm - pure c disasm implement 2010 年
    * 同样有些小 issue@2014 仍未解决
 
+Contribute
+====
+ 感谢淘神教我写 ajax 以及各种有意思的前端技巧
+
 Reference
 ====
 [1] https://code.google.com/p/pymsasid/issues/detail?id=16
